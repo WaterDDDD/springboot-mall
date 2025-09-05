@@ -3,7 +3,11 @@ package com.water.springboogmall.dao;
 import com.water.springboogmall.dto.ProductRequest;
 import com.water.springboogmall.model.Product;
 
+import java.util.List;
+
 public interface ProductDao {
+
+    List<Product> getProducts();
 
     Product getProductById(Integer productId);
 
