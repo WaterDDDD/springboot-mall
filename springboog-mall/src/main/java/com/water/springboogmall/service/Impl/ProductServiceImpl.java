@@ -2,6 +2,7 @@ package com.water.springboogmall.service.Impl;
 
 import com.water.springboogmall.constant.ProductCategory;
 import com.water.springboogmall.dao.ProductDao;
+import com.water.springboogmall.dto.ProductQueryParams;
 import com.water.springboogmall.dto.ProductRequest;
 import com.water.springboogmall.model.Product;
 import com.water.springboogmall.service.ProductService;
@@ -17,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
-        return productDao.getProducts(category, search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     @Override
