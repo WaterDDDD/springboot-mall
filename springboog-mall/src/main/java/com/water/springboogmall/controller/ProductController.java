@@ -27,7 +27,7 @@ public class ProductController {
             @RequestParam (required = false) String search,
 
             //排序 Sorting
-            @RequestParam (defaultValue = "create_date") String orderBy,
+            @RequestParam (defaultValue = "created_date") String orderBy,
             @RequestParam (defaultValue = "desc") String sort
     ) {
         ProductQueryParams productQueryParams = new ProductQueryParams();
