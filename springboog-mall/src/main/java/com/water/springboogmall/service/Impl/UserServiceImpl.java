@@ -2,9 +2,11 @@ package com.water.springboogmall.service.Impl;
 
 
 import com.water.springboogmall.dao.UserDao;
+import com.water.springboogmall.dto.UserLoginRequest;
 import com.water.springboogmall.dto.UserRequest;
 import com.water.springboogmall.model.User;
 import com.water.springboogmall.service.UserService;
+import com.water.springboogmall.util.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +42,23 @@ public class UserServiceImpl implements UserService {
 
         // 創建帳號
         return userDao.createUser(userRequest);
+    }
+
+    @Override
+    public User login(UserLoginRequest userLoginRequest) {
+        User user = userDao.gerUserByEmail(userLoginRequest.getEmail());
+
+        if(user == null) {
+            log.warn("該 email {} 尚未註冊", userLoginRequest.getEmail());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        if (user.getPassword().equals(userLoginRequest.getPassword())) {
+            return user;
+        } else {
+            log.warn("email {} 的密碼不正確", userLoginRequest.getEmail());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

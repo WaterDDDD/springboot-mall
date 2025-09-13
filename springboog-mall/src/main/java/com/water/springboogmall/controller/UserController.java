@@ -1,5 +1,6 @@
 package com.water.springboogmall.controller;
 
+import com.water.springboogmall.dto.UserLoginRequest;
 import com.water.springboogmall.dto.UserRequest;
 import com.water.springboogmall.model.User;
 import com.water.springboogmall.service.UserService;
@@ -25,5 +26,14 @@ public class UserController {
         User user = userService.getUserById(UserId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+
+        User user = userService.login(userLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+
     }
 }
