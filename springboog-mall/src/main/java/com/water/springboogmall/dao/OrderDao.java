@@ -1,10 +1,15 @@
 package com.water.springboogmall.dao;
 
+import com.water.springboogmall.model.Order;
 import com.water.springboogmall.model.OrderItem;
 
 import java.util.List;
 
 public interface OrderDao {
+
+    Order getOrderById(Integer orderId);
+
+    List<OrderItem> getOrderItemsByOrderId(Integer orderId);
 
     Integer createOrder(Integer userId, Integer totalAmount);
 
