@@ -207,7 +207,7 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$.limit", notNullValue()))
                 .andExpect(jsonPath("$.offset", notNullValue()))
                 .andExpect(jsonPath("$.total", notNullValue()))
-                .andExpect(jsonPath("$.result", hasSize(5)));
+                .andExpect(jsonPath("$.results", hasSize(5)));
     }
 
     @Test
@@ -222,7 +222,7 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$.limit", notNullValue()))
                 .andExpect(jsonPath("$.offset", notNullValue()))
                 .andExpect(jsonPath("$.total", notNullValue()))
-                .andExpect(jsonPath("$.result", hasSize(2)));
+                .andExpect(jsonPath("$.results", hasSize(2)));
     }
 
     @Test
@@ -238,12 +238,12 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$.limit", notNullValue()))
                 .andExpect(jsonPath("$.offset", notNullValue()))
                 .andExpect(jsonPath("$.total", notNullValue()))
-                .andExpect(jsonPath("$.result", hasSize(5)))
-                .andExpect(jsonPath("$.result[0].productId", equalTo(6)))
-                .andExpect(jsonPath("$.result[1].productId", equalTo(5)))
-                .andExpect(jsonPath("$.result[2].productId", equalTo(7)))
-                .andExpect(jsonPath("$.result[3].productId", equalTo(4)))
-                .andExpect(jsonPath("$.result[4].productId", equalTo(2)));
+                .andExpect(jsonPath("$.results", hasSize(5)))
+                .andExpect(jsonPath("$.results[0].productId", equalTo(6)))
+                .andExpect(jsonPath("$.results[1].productId", equalTo(5)))
+                .andExpect(jsonPath("$.results[2].productId", equalTo(7)))
+                .andExpect(jsonPath("$.results[3].productId", equalTo(4)))
+                .andExpect(jsonPath("$.results[4].productId", equalTo(2)));
     }
 
     @Test
@@ -259,8 +259,8 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$.limit", notNullValue()))
                 .andExpect(jsonPath("$.offset", notNullValue()))
                 .andExpect(jsonPath("$.total", notNullValue()))
-                .andExpect(jsonPath("$.result", hasSize(2)))
-                .andExpect(jsonPath("$.result[0].productId", equalTo(5)))
-                .andExpect(jsonPath("$.result[1].productId", equalTo(4)));
+                .andExpect(jsonPath("$.results", hasSize(2)))
+                .andExpect(jsonPath("$.results[0].productId", equalTo(5)))
+                .andExpect(jsonPath("$.results[1].productId", equalTo(4)));
     }
 }
